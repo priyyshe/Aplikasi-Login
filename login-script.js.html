@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>login-script.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,36 +29,78 @@
 
 <div id="main">
     
+    <h1 class="page-title">login-script.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/** 
+ * @module Login-Script
+ */
+
+/**
+ * Form login pada halaman
+ * @constant {HTMLElement}
+ */
+const loginFormElement = document.querySelector('#loginForm');
+
+/**
+ * Input email dari form login
+ * @constant {HTMLElement}
+ */
+const inputEmailElement = document.querySelector('#inputEmail');
+
+/**
+ * Input password dari form login
+ * @constant {HTMLElement}
+ */
+const inputPasswordElement = document.querySelector('#inputPassword');
+
+/**
+ * Email yang digunakan untuk validasi login
+ * @constant {string}
+ */
+const expectedEmail = 'admin@dicoding.com';
+
+/**
+ * Password yang digunakan untuk validasi login
+ * @constant {string}
+ */
+const expectedPassword = 'superpassword';
 
 
+/**
+ * Event submit pada form login
+ */
+loginFormElement.addEventListener('submit', function(event) {
+  event.preventDefault();
 
+  /**
+   * Nilai email yang dimasukkan pengguna
+   * @constant {string}
+   */
+  const email = inputEmailElement.value;
 
+  /**
+   * Nilai password yang dimasukkan pengguna
+   * @constant {string}
+   */
+  const password = inputPasswordElement.value;
 
-
-
-
-
-    
-
-
-    <section class="readme">
-        <article><h1>Aplikasi-Login</h1>
-<p>Sebuah aplikasi dengan fitur login.</p>
-<p>Alur Fitur Login:</p>
-<ol>
-<li>Memasukkan email dan password</li>
-<li>Memvalidasi masukan.</li>
-<li>Menampilkan halaman hone.</li>
-</ol></article>
+  if (email == expectedEmail &amp;&amp; password == expectedPassword) {
+    goToHome();
+  } else {
+    showPopUp();
+  }
+});
+</code></pre>
+        </article>
     </section>
-
-
 
 
 
